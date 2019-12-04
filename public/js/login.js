@@ -10,11 +10,11 @@ $(document).ready(function() {
     event.preventDefault();
     var userData = {
       email: emailInput.val().trim(),
-      uname: unameInput.val().trim(),
+      
       password: passwordInput.val().trim()
     };
 
-    if (!userData.email || !userData.password || !userData.uname) {
+    if (!userData.email || !userData.password) {
       return;
     }
 
@@ -29,7 +29,6 @@ $(document).ready(function() {
   function loginUser(email, uname, password) {
     $.post("/api/login", {
       email: email,
-      uname: uname,
       password: password
     })
       .then(function() {
