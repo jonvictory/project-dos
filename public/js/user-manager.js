@@ -1,7 +1,8 @@
 $(document).ready(function() {
   // Getting references to the name input and user container, as well as the table body
   var nameInput = $("#user-name");
-  var emailInput = $("user-email")
+  var emailInput = $("#user-email")
+  var passwordInput = $("#user-password")
   var userList = $("tbody");
   var userContainer = $(".user-container");
   // Adding event listeners to the form to create a new object, and the button to delete
@@ -16,14 +17,18 @@ $(document).ready(function() {
   function handleUserFormSubmit(event) {
     event.preventDefault();
     // Don't do anything if the name fields hasn't been filled out
-      
+    var userData = {
+      email: emailInput.val().trim(),
+      uname: nameInput.val().trim(),
+      password: passwordInput.val().trim()
+    };
   
       if (!userData.email || !userData.password || !userData.uname) {
         return;
       }
       upsertUser({
         email: emailInput.val().trim(),
-        uname: unameInput.val().trim(),
+        uname: nameInput.val().trim(),
         password: passwordInput.val().trim()
       });
       // If we have an email and password, run the signUpUser function
