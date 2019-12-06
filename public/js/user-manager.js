@@ -6,7 +6,7 @@ $(document).ready(function() {
   var userList = $("tbody");
   var userContainer = $(".user-container");
   // Adding event listeners to the form to create a new object, and the button to delete
-  // an User
+  // a User
   $(document).on("submit", "#user-form", handleUserFormSubmit);
   $(document).on("click", ".delete-user", handleDeleteButtonPress);
 
@@ -25,14 +25,16 @@ $(document).ready(function() {
   
       if (!userData.email || !userData.password || !userData.uname) {
         return;
+        
       }
       upsertUser({
         email: emailInput.val().trim(),
         uname: nameInput.val().trim(),
         password: passwordInput.val().trim()
+        
       });
-      // If we have an email and password, run the signUpUser function
-  }
+      
+    }
 
   // A function for creating a user. Calls getUsers upon completion
   function upsertUser(userData) {
@@ -65,6 +67,8 @@ $(document).ready(function() {
       }
       renderUserList(rowsToAdd);
       nameInput.val("");
+      emailInput.val("");
+      passwordInput.val("");
     });
   }
 
@@ -85,7 +89,7 @@ $(document).ready(function() {
   function renderEmpty() {
     var alertDiv = $("<div>");
     alertDiv.addClass("alert alert-danger");
-    alertDiv.text("You must create an User before you can create a Post.");
+    alertDiv.text("You must create a User before you can create a Post.");
     userContainer.append(alertDiv);
   }
 

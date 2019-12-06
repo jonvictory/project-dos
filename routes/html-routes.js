@@ -29,17 +29,17 @@ module.exports = function(app) {
   });
 
   // cms route loads cms.html
-  app.get("/cms", function(req, res) {
+  app.get("/cms", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/cms.html"));
   });
 
   // blog route loads blog.html
-  app.get("/feed", function(req, res) {
+  app.get("/feed", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/feed.html"));
   });
 
   // authors route loads author-manager.html
-  app.get("/user-manager", function(req, res) {
+  app.get("/user-manager", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/user-manager.html"));
   });
 
