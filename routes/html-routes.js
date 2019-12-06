@@ -28,4 +28,19 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
+  // cms route loads cms.html
+  app.get("/cms", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/cms.html"));
+  });
+
+  // blog route loads blog.html
+  app.get("/feed", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/feed.html"));
+  });
+
+  // authors route loads author-manager.html
+  app.get("/user-manager", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/user-manager.html"));
+  });
+
 };
