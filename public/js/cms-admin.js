@@ -3,18 +3,13 @@ $(document).ready(function() {
   var bodyInput = $("#body");
   var titleInput = $("#title");
   var cmsForm = $("#cms");
-
-
-  $.get("/api/user_data").then(function(data) {
-      $(".member-name").text(data.uname);
-      console.log(data.id)
-  
+  var userSelect = $("#user");
   // Adding an event listener for when the form is submitted
   $(cmsForm).on("submit", handleFormSubmit);
   // Gets the part of the url that comes after the "?" (which we have if we're updating a post)
   var url = window.location.search;
   var postId;
-  var userId = data.id;
+  var userId;
   // Sets a flag for whether or not we're updating a post to be false initially
   var updating = false;
 
@@ -29,11 +24,14 @@ $(document).ready(function() {
     userId = url.split("=")[1];
   }
 
+  // Getting the users, and their posts
+  getUsers();
+
   // A function for handling what happens when the form to create a new post is submitted
   function handleFormSubmit(event) {
     event.preventDefault();
     // Wont submit the post if we are missing a body, title, or user
-    if (!titleInput.val().trim() || !bodyInput.val().trim()){
+    if (!titleInput.val().trim() || !bodyInput.val().trim() || !userSelect.val()) {
       return;
     }
     // Constructing a newPost object to hand to the database
@@ -44,7 +42,7 @@ $(document).ready(function() {
       body: bodyInput
         .val()
         .trim(),
-      UserId: userId
+      UserId: userSelect.val()
     };
 
     // If we're updating a post run updatePost to update a post
@@ -92,6 +90,36 @@ $(document).ready(function() {
     });
   }
 
+  // A function to get Users and then render our list of Users
+  function getUsers() {
+    $.get("/api/users", renderUserList);
+  }
+  // Function to either render a list of users, or if there are none, direct the user to the page
+  // to create an user first
+  function renderUserList(data) {
+    if (!data.length) {
+      window.location.href = "/user-manager";
+    }
+    $(".hidden").removeClass("hidden");
+    var rowsToAdd = [];
+    for (var i = 0; i < data.length; i++) {
+      rowsToAdd.push(createUserRow(data[i]));
+    }
+    userSelect.empty();
+    console.log(rowsToAdd);
+    console.log(userSelect);
+    userSelect.append(rowsToAdd);
+    userSelect.val(userId);
+  }
+
+  // Creates the user options in the dropdown
+  function createUserRow(user) {
+    var listOption = $("<option>");
+    listOption.attr("value", user.id);
+    listOption.text(user.uname);
+    return listOption;
+  }
+
   // Update a given post, bring user to the content feed page when done
   function updatePost(post) {
     $.ajax({
@@ -104,4 +132,3 @@ $(document).ready(function() {
       });
   }
 });
-}); 

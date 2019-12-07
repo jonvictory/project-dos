@@ -31,11 +31,25 @@
 								<th>Name</th>
 								<th># of Posts</th>
 								<th>See User's Posts</th>
+								<th>New Post</th>
+								<th>Delete User</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr id="form-row">
 								<form id="user-form">
+									<td colspan="3">
+										<input class="form-control" placeholder="Enter a name" id="user-name" type="text">
+									</td>
+									<td colspan="3">
+										<input type="email" class="form-control" id="user-email" placeholder="Enter an email">
+										</td>
+										<td colspan="3">
+										<input type="password" class="form-control" id="user-password" placeholder="Enter a password">
+										</td>
+									</div>
+									<td><button type="submit" class="btn btn-success">Create User</button>
+									</td>
 								</form>
 							</tr>
 						</tbody>

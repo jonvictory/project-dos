@@ -5,9 +5,42 @@ $(document).ready(function() {
   var passwordInput = $("#user-password")
   var userList = $("tbody");
   var userContainer = $(".user-container");
+  // Adding event listeners to the form to create a new object, and the button to delete
+  // a User
+  $(document).on("submit", "#user-form", handleUserFormSubmit);
+  $(document).on("click", ".delete-user", handleDeleteButtonPress);
 
   // Getting the initial list of Users
   getUsers();
+
+  // A function to handle what happens when the form is submitted to create a new User
+  function handleUserFormSubmit(event) {
+    event.preventDefault();
+    // Don't do anything if the name fields hasn't been filled out
+    var userData = {
+      email: emailInput.val().trim(),
+      uname: nameInput.val().trim(),
+      password: passwordInput.val().trim()
+    };
+  
+      if (!userData.email || !userData.password || !userData.uname) {
+        return;
+        
+      }
+      upsertUser({
+        email: emailInput.val().trim(),
+        uname: nameInput.val().trim(),
+        password: passwordInput.val().trim()
+        
+      });
+      
+    }
+
+  // A function for creating a user. Calls getUsers upon completion
+  function upsertUser(userData) {
+    $.post("/api/users", userData)
+      .then(getUsers);
+  }
 
   // Function for creating a new list row for users
   function createUserRow(userData) {
@@ -20,6 +53,8 @@ $(document).ready(function() {
       newTr.append("<td>0</td>");
     }
     newTr.append("<td><a href='/members?user_id=" + userData.id + "'>Go to Posts</a></td>");
+    newTr.append("<td><a href='/cms?user_id=" + userData.id + "'>Create a Post</a></td>");
+    newTr.append("<td><a style='cursor:pointer;color:red' class='delete-user'>Delete User</a></td>");
     return newTr;
   }
 
