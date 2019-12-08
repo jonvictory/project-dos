@@ -6,26 +6,29 @@
 	<title>Upload Form</title>
 	<!-- Latest compiled and minified CSS & JS -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../css/feed-style.css" media="screen" title="no title">
+	<link rel="stylesheet" href="../stylesheets/feed-style.css" media="screen" title="no title">
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-	<div class="container hidden">
+	<div class="container">
 		<div class="row top-30">
       <div class="col-md-2 col-sm-2">
-        <a class="btn btn-light" href="/members">Go to content feed</a>
+			<a class="btn btn-light" href="/logout">
+				Logout
+			  </a>
+			  </div>
+			  <div class="col-md-2 col-sm-2">
+        <a class="btn btn-light" href="/admin/members">Go to content feed</a>
       </div>
       <div class="col-md-2 col-sm-2">
-        <a class="btn btn-light" href="/user-manager">Manage users</a>
+        <a class="btn btn-light" href="/admin/user-manager">Manage users</a>
       </div>
 	</div>
+</div>
+
 	<div class="container">
-		<div class="row">
-		  <div class="col-md-6 col-md-offset-3">
-			<h2>Welcome <span class="member-name"></span></h2>
-		  </div>
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<form id="cms">

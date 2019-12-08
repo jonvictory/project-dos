@@ -10,6 +10,9 @@ module.exports = function(req, res, next) {
         return res.redirect("/");
       }
     }
+    else if(req.route.path.includes('.html')) {
+      return res.redirect("/")
+    }
   return next();
 
   // console.log ('req', req.route.path)

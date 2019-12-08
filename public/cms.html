@@ -10,7 +10,7 @@
     />
     <link
       rel="stylesheet"
-      href="css/feed-style.css"
+      href="stylesheets/feed-style.css"
       media="screen"
       title="no title"
     />
@@ -19,15 +19,23 @@
   </head>
 
   <body>
-    <div class="container hidden">
+    <div class="container">
       <div class="row top-30">
         <div class="col-md-2 col-sm-2">
-          <a class="btn btn-light" href="/members">Go to content feed</a>
+          <a class="btn btn-light" href="/logout">
+            Logout
+          </a>
         </div>
         <div class="col-md-2 col-sm-2">
-          <a class="btn btn-light" href="/user-manager">Manage users</a>
+          <a class="btn btn-light" href="/members">Content Feed</a>
+        </div>
+        <div class="col-md-2 col-sm-2">
+          <a class="btn btn-light" href="/user-manager">Community</a>
         </div>
       </div>
+    </div>
+
+    <div class="container">
       <div class="row">
         <div class="col-md-6 offset-md-3">
           <h3>Posting as: <span class="member-name"></span></h3>
