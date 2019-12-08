@@ -1,6 +1,7 @@
 $(document).ready(function() {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
+  var name
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.uname);
   });
@@ -124,6 +125,7 @@ $(document).ready(function() {
     if (id) {
       partial = " for User #" + id;
     }
+    console.log(data.uname)
     blogContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });

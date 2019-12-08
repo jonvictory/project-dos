@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS passport_demo;
+DROP DATABASE IF EXISTS feature;
 
-CREATE DATABASE passport_demo;
-USE passport_demo;
+CREATE DATABASE feature;
+USE feature;
 
 CREATE TABLE user
 (
@@ -12,4 +12,4 @@ CREATE TABLE user
 	PRIMARY KEY (id)
 );
 
-SELECT * FROM passport
+SELECT * FROM user
