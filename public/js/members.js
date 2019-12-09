@@ -125,7 +125,7 @@ $(document).ready(function() {
     if (id) {
       partial = " for User #" + id;
     }
-    console.log(data.uname)
+
     blogContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
