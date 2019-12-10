@@ -1,60 +1,62 @@
 <!DOCTYPE html>
+<!-- declaring HTML for browser -->
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Content Feed</title>
-    <!-- Latest compiled and minified CSS & JS -->
-    <link
-      href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="stylesheets/feed-style.css"
-      media="screen"
-      title="no title"
-    />
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8" />
+  <!-- this will show in the tab in the browser -->
+  <title>Content Feed</title>
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=B612&display=swap" rel="stylesheet">
+
+  <!-- style sheets -->
+  <link rel="stylesheet" href="stylesheets/reset.css">
+  <link rel="stylesheet" href="stylesheets/members.css" media="screen" title="no title" />
+  <!-- jquery cdn -->
+  <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
+<!-- Start of viewable content -->
+<!-- Header/Logo -->
 <body>
-    <div class="container">
-        <div class="row top-30">
-          <div class="col-md-2 col-sm-2">
-          <a class="btn btn-light" href="/logout">
-            Logout
-            </a>
-            </div>
-            <div class="col-md-2 col-sm-2">
-            <a class="btn btn-light" href="/cms">Create a new post</a>
-          </div>
-          <div class="col-md-2 col-sm-2">
-            <a class="btn btn-light" href="/user-manager">Community</a>
-          </div>
-      </div>
-    </div>
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-md-offset-3">
+    <div class="rowNav nav">
+      BanKan
+      <p class="smallText">
+        Sound Sharing
+      </p>
+    </div>
+  </div>
+
+  <!-- Left Navigation -->
+  <div class="container">
+    <div class="blogRow">
+      <div class="threeCol">
+        <div>
+          <a class="buttonMembers" href="/user-manager">Community</a>
+        </div>
+        <div>
+          <a class="buttonMembers" href="/cms">New Post</a>
+        </div>
+        <div>
+          <a class="buttonMembers" href="/logout">Logout</a>
+        </div>
         <h2>Logged in as: <span class="member-name"></span></h2>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 blog-container">
+      <div class="sevenCol blog-container">
+        <!-- POSTS!!! New Posts Go Here -->
       </div>
     </div>
   </div>
- 
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/members.js"></script>
-     
-    <!-- Custom Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/members.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
 
-
+  <!-- End of Content/Body -->
 </body>
 
 </html>

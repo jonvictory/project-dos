@@ -2,21 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Login</title>
-    <!-- Latest compiled and minified CSS & JS -->
-    <link
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <!-- <link
       href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css"
       rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="stylesheets/feed-style.css"
-      media="screen"
-      title="no title"
-    />
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    /> -->
+  <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/reset.css">
+  <link rel="stylesheet" href="stylesheets/login.css" media="screen" title="no title" >
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
 </head>
 
 <body>
@@ -26,26 +23,34 @@
       </div>
     </div>
   </nav>
+
+  <!-- Login Form -->
   <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Login Form</h2>
+    <div class="fiftyP">
+      <div class="loginText">
+        <h1 class="xlText">Login</h1>
         <form class="login">
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
+            <label for="exampleInputEmail1">Email address:</label>
+            <input type="email" class="form-control" id="email-input" placeholder="jon@bankan.com">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="exampleInputPassword1">Password:</label>
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-default">Login</button>
+          <button type="submit" class="buttonLogin">Login</button>
         </form>
         <br />
-        <p>Or sign up <a href="/">here</a></p>
+        <p class="buttonBottom">Or sign up <a href="/">here</a></p>
       </div>
     </div>
-  </div>
+    
+    <div class="title">
+        BanKan
+        <p class="smallText">
+        Sound Sharing
+    </p>
+      </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/login.js"></script>
