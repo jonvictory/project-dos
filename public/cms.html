@@ -60,6 +60,9 @@
                 <label for="body">Body:</label>
                 <textarea placeholder="Post Body" class="form-control" rows="10" id="body"></textarea>
                 <div class="form-group"></div>
+                <button class="buttonSubmit" type="submit" class="btn btn-success submit"></button>
+            Submit
+          </button>
                 <br />
               </div>
             </form>
@@ -69,10 +72,8 @@
         <form ref='uploadForm' id='upload' action='/upload' method='post'
           encType="multipart/form-data">
           <input type="file" name="inputFile" multiple />
-          <input class="buttonSubmit" type='submit' value='Upload!' />
-          <button class="buttonSubmit" type="submit" class="btn btn-success submit">
-            Submit
-          </button>
+          <input class="buttonSubmit" type='submit' value='Upload!' id="sub-butt" />
+          
           <div id="demo"></div>
         </form>
         
