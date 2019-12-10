@@ -4,7 +4,6 @@ module.exports = function(req, res, next) {
   
     // console.log('req.user', req.user)
     // console.log('req.user', next)
-    console.log('isamind', req.route.path.includes('/admin'))
     if(req.route.path.includes('/admin')) {
       if((req.user && !req.user.adminz) || !req.user) {
         return res.redirect("/");
@@ -15,14 +14,4 @@ module.exports = function(req, res, next) {
     }
   return next();
 
-  // console.log ('req', req.route.path)
-  // console.log ('next.value', next.value)
-  // if (req.user.adminz === true) {
-  //   return res.redirect("/admin/members.html")
-  // }
-  
-
-  // else if (req.user.adminz === false) {
-  // }
-  // If the user isn't logged in, redirect them to the login page
 };

@@ -18,7 +18,7 @@ const upload = multer({
       cb(null, { fieldName: file.fieldname })
     },
     key: (req, file, cb) => {
-      cb(null, 'files_from_node/' + Date.now().toString() + file.originalname)
+      cb(null, 'bankan/' + file.originalname)
     }
   })
 })

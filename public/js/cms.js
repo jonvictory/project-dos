@@ -2,8 +2,34 @@ $(document).ready(function() {
   // Getting jQuery references to the post body, title, form, and user select
   var bodyInput = $("#body");
   var titleInput = $("#title");
+  var inputFile = $("#inputFile")
   var cmsForm = $("#cms");
 
+  
+  $('#upload').submit(function() 
+  {     console.log(this)
+      $.ajax({
+          url: $(this).attr('action'),
+          type:$(this).attr('method'),
+          dataType: "JSON",
+          data: new FormData(this),
+          processData: false,
+          contentType: false,
+          success: function (data, status)
+          {
+            console.log(data);
+            console.log(data.file.location)
+              $('#demo').html(data.return); //content loads here
+  
+          },
+          error: function (xhr, desc, err)
+          {
+              console.log("error");
+  
+          }
+      });        
+       return false;
+  });
 
   $.get("/api/user_data").then(function(data) {
       $(".member-name").text(data.uname);
@@ -11,6 +37,7 @@ $(document).ready(function() {
   
   // Adding an event listener for when the form is submitted
   $(cmsForm).on("submit", handleFormSubmit);
+  $
   // Gets the part of the url that comes after the "?" (which we have if we're updating a post)
   var url = window.location.search;
   var postId;
@@ -28,7 +55,8 @@ $(document).ready(function() {
   else if (url.indexOf("?user_id=") !== -1) {
     userId = url.split("=")[1];
   }
-
+  
+  
   // A function for handling what happens when the form to create a new post is submitted
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -42,6 +70,9 @@ $(document).ready(function() {
         .val()
         .trim(),
       body: bodyInput
+        .val()
+        .trim(),
+      inputFile: inputFile
         .val()
         .trim(),
       UserId: userId
@@ -84,6 +115,7 @@ $(document).ready(function() {
         // If this post exists, prefill our cms forms with its data
         titleInput.val(data.title);
         bodyInput.val(data.body);
+        fileInput.val(data.fileInput);
         userId = data.UserId || data.id;
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit

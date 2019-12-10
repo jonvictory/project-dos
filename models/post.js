@@ -11,7 +11,12 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.TEXT,
         allowNull: false,
         len: [1]
-      }
+      },
+      inputFile: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        len: [1]
+      } 
     });
 
       // We're saying that a Post should belong to a User

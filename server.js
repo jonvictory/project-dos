@@ -22,11 +22,13 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json())
-app.use('/', [
-  require('./routes/fileupload')
-])
+
+// app.use('/', [
+  
+// ])
 
 // Requiring our routes
+require("./routes/fileupload.js")(app);
 require("./routes/admin-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
