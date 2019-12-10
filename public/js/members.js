@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
-  var name
+  var name;
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.uname);
   });
@@ -14,17 +14,16 @@ $(document).ready(function() {
   // Looks for a query param in the url for user_id
   var url = window.location.search;
   var userId;
-  
+
   if (url.indexOf("?user_id=") !== -1) {
     userId = url.split("=")[1];
     getPosts(userId);
-    console.log(userId)
+    console.log(userId);
   }
   // If there's no userId we just get all posts as usual
   else {
     getPosts();
   }
-
 
   // This function grabs posts from the database and updates the view
   function getPosts(user) {
@@ -32,14 +31,13 @@ $(document).ready(function() {
     if (userId) {
       userId = "/?user_id=" + userId;
     }
-    console.log(userId)
+    console.log(userId);
     $.get("/api/posts" + userId, function(data) {
       console.log("Posts", data);
       posts = data;
       if (!posts || !posts.length) {
         displayEmpty(user);
-      }
-      else {
+      } else {
         initializeRows();
       }
     });
@@ -50,10 +48,9 @@ $(document).ready(function() {
     $.ajax({
       method: "DELETE",
       url: "/api/posts/" + id
-    })
-      .then(function() {
-        getPosts(postCategorySelect.val());
-      });
+    }).then(function() {
+      getPosts(postCategorySelect.val());
+    });
   }
 
   // InitializeRows handles appending all of our constructed post HTML inside blogContainer
@@ -77,22 +74,29 @@ $(document).ready(function() {
     var newPostTitle = $("<h2>");
     var newPostDate = $("<small>");
     var newPostUser = $("<h5>");
+    var newLink = $("<a>");
+
     newPostUser.text("Written by: " + post.User.uname);
     newPostUser.css({
       float: "right",
-      color: "blue",
-      "margin-top":
-      "-10px"
+      "margin-top": "-10px"
     });
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
     newPostTitle.text(post.title + " ");
+    var newInputFile = post.fileLocation;
+    newLink.text(post.inputFile);
+    newLink.attr("href", newInputFile);
+    console.log(newInputFile);
     newPostBody.text(post.body);
     newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
     newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostUser);
+
+    newPostCardBody.append(newLink);
+
     newPostCardBody.append(newPostBody);
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
@@ -129,8 +133,13 @@ $(document).ready(function() {
     blogContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No posts yet" + partial + ", navigate <a href='/cms" + query +
-    "'>here</a> in order to get started.");
+    messageH2.html(
+      "No posts yet" +
+        partial +
+        ", navigate <a href='/cms" +
+        query +
+        "'>here</a> in order to get started."
+    );
     blogContainer.append(messageH2);
   }
 });

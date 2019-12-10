@@ -7,6 +7,35 @@ body {
   background: #dbdbdb;
 }
 
+#cms > div > button {
+  float: right;
+  margin-right: 10%;
+  margin-top: 48px;
+}
+
+#upload {
+  margin-left: 45px;
+  margin-bottom: 9px;
+}
+
+body > div:nth-child(2) > div > div.user-container > div:nth-child(2){
+  margin-left: 9px;
+}
+
+body > div:nth-child(2) > div > div.user-container > div:nth-child(1) > div > h3{
+  margin-left: 9px;
+  margin-bottom: 9px;
+  margin-top: 9px;
+}
+
+#body {
+  font-size: 20px;
+}
+
+#title {
+  font-size: 16px;
+}
+
 .buttonMembers {
   position: static;
   display: block;
