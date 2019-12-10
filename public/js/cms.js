@@ -18,7 +18,7 @@ $(document).ready(function() {
           success: function (data, status)
           {
             console.log(data);
-            console.log(data.file.location)
+            // console.log(data.file.location)
               $('#demo').html(data.return); //content loads here
   
           },
