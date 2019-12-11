@@ -1,0 +1,144 @@
+  .hidden {
+    display: none;
+  }
+  
+  
+body {
+  font-family: 'Pacifico', cursive;
+}
+
+  .buttonLogin {
+    padding-left:  9px;
+    padding-right: 9px;
+    font-size: medium;
+    background: #fa7a6e;
+    border: solid #fa7a6e;
+    border-right: solid #f0594b;
+    border-bottom: solid #f0594b;
+    border-radius: 6px;
+    font-family: 'Pacifico', cursive;
+    margin-top: 12px;
+  }
+
+  .buttonLogin:hover {
+    background: white;
+    border: solid white;
+    color: black;
+    font-family: 'Pacifico', cursive;
+  }
+
+  .buttonBottom {
+    margin-top: 18px
+  }
+
+  input {
+    border-radius: 6px;
+    padding: 3px;
+    font-family: 'Pacifico', cursive;
+  }
+
+  .top-30 {
+    margin: 30px 0 20px 0;
+  }
+
+  .xlText {
+    font-size: 48px;
+    margin-bottom: 22px;
+  }
+  
+  .container {
+    width: 100%;
+    margin: auto;
+  }
+
+  .formStart {
+    /* margin-left: 50%;
+    margin-right: 50%; */
+    display: inline-block;
+    margin-top: 10%;
+    
+  }
+
+  .fiftyP {
+    width: 50%;
+    display: inline-block;
+    margin-top: 10%;
+  }
+
+  .loginText {
+    background: #2f2e30;
+    color: white;
+    border-radius: 6px;
+    font-size: x-large;
+    padding: 69px;
+    box-shadow: 10px 10px 5px grey;
+    display: inline-block;
+    margin-left: 9%;
+  }
+  
+  .smallText {
+    font-size: large !important;
+  }
+
+  href{
+    color: #fa7a6e;
+  }
+  
+  .title {
+    display: block;
+    font-size: 60px;
+    margin-left: 0;
+    width: 48%;
+  }
+
+  .form-group {
+    margin-top: 9px;
+  }
+
+
+
+
+
+
+a {color:#fa7a6e;}         /* Unvisited link  */
+a:visited {color:#fa7a6e;} /* Visited link    */
+a:hover {color:rgb(255, 255, 255);}   /* Mouse over link */
+a:active {color:rgb(255, 255, 255);}  /* Selected link   */
+
+
+/* Small (sm) */
+@media (min-width: 640px) { /* ... */
+  .title {
+    font-size: 80px;
+    display: block;
+  }
+
+}
+
+/* Medium (md) */
+@media (min-width: 768px) { /* ... */ 
+  .title {
+    font-size: 120px;
+    display: inline-block;
+  }
+
+}
+
+/* Large (lg) */
+@media (min-width: 1024px) { /* ... */ 
+  .title {
+    font-size: 160px;
+    display: inline-block;
+  }
+
+}
+
+/* Extra Large (xl) */
+@media (min-width: 1280px) { /* ... */ 
+  .title {
+    font-size: 180px;
+    display: inline-block;
+  }
+
+
+}
